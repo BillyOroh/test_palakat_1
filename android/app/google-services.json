@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "545131713390",
+    "project_id": "test-palakat-1",
+    "storage_bucket": "test-palakat-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545131713390:android:ea89d6ece529886069677f",
+        "android_client_info": {
+          "package_name": "com.example.test_palakat_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCJKlNU6uDZoaOUjLlLjcM4eU-mm1Du3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
