@@ -1,4 +1,5 @@
 import 'home_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DateController {
   List<DateModel> dates = [
@@ -26,9 +27,26 @@ class DateController {
       services: '4 Services',
     ),
   ];
+
   List<DateModel> getDateData() {
     return dates;
   }
+  // Future <List<DateModel>> getDateData() async {
+  //   await FirebaseFirestore.instance
+  //       .collection('dates')
+  //       .snapshots()
+  //       .map((snapshot) {
+  //     return snapshot.docs.map((doc) {
+  //       final data = doc.data();
+  //       return DateModel(
+  //         day: data['day'],
+  //         date: data['date'],
+  //         services: data['services'] ,
+  //         events: data['events'] ,
+  //       );
+  //     }).toList();
+  //   });
+  // }
 }
 
 class UserController {
