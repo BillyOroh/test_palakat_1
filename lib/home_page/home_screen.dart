@@ -97,13 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (!snapshot.hasData) {
                       return Text('No data available');
                     }
-                    final dateList = snapshot.data!;
+                    final dates = snapshot.data!;
                     return Expanded(
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: dateList.length,
+                          itemCount: dates.length,
                           itemBuilder: (context, index) {
-                            final date = dateList[index];
+                            final date = dates[index];
                             return DateCardWidget(
                               dateModel: date,
                             );
