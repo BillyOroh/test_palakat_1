@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late DateController dateController;
   late UserController userController;
-  List<DateModel> dates = [];
+  // List<DateModel> dates = [];
   late UserModel users;
 
   @override
