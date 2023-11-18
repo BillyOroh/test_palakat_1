@@ -87,17 +87,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   future: dateController.getDateData(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      // Show a loading indicator if the data is still loading
                       return CircularProgressIndicator();
                     }
 
                     if (snapshot.hasError) {
-                      // Show an error message if there was an error fetching the data
                       return Text('Error: ${snapshot.error}');
                     }
 
                     if (!snapshot.hasData) {
-                      // Show a message if there is no data available
                       return Text('No data available');
                     }
                     final dateList = snapshot.data!;
