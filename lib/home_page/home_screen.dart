@@ -53,31 +53,27 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    child: Text(
-                      'This Week (18)',
-                      style: TextStyle(
-                        fontSize: 30.0,
-                        color: Colors.grey.shade500,
-                      ),
+                  Text(
+                    'This Week (18)',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.grey.shade500,
                     ),
                   ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Text(
-                          'View All',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
+                  Row(
+                    children: [
+                      Text(
+                        'View All',
+                        style: TextStyle(
+                          fontSize: 20.0,
                           color: Colors.grey.shade500,
-                        )
-                      ],
-                    ),
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.grey.shade500,
+                      )
+                    ],
                   )
                 ],
               ),
