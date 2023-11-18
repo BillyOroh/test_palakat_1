@@ -2,7 +2,7 @@ import 'home_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DateController {
-  List<DateModel> dates = [];
+  // List<DateModel> dates = [];
   // List<DateModel> dates = [
   //   DateModel(
   //     id: '0',
@@ -65,7 +65,7 @@ class DateController {
     QuerySnapshot querySnapshot = await dateCollection.get();
 
     if (querySnapshot.docs.isNotEmpty) {
-      dates = querySnapshot.docs.map((document) {
+      final List<DateModel> dates = querySnapshot.docs.map((document) {
         Map<String, dynamic> data = document.data() as Map<String, dynamic>;
 
         return DateModel(
@@ -86,6 +86,7 @@ class DateController {
     } else {
       throw ArgumentError('No Collection Found');
     }
+    // return dates;
   }
 }
 
