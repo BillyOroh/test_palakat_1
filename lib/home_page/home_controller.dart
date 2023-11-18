@@ -83,7 +83,7 @@ class DateController {
       //   // print('ID: ${date.id}, Tanggal: ${date.day} ${date.date}');
       // });
     } else {
-      print('No documents found in the collection.');
+      print('No documents found.');
     }
 
     return dates;
