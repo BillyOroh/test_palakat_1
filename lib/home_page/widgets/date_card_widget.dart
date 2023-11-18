@@ -13,14 +13,14 @@ class DateCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 25),
-      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             dateModel.day,

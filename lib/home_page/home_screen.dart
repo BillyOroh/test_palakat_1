@@ -77,9 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 20.0,
-              ),
+              const SizedBox(height: 20.0),
               FutureBuilder<List<DateModel>>(
                   future: dateController.getDateData(),
                   builder: (context, snapshot) {
@@ -95,7 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       return const Text('No data available');
                     }
                     final dates = snapshot.data!;
-                    return Expanded(
+                    return SizedBox(
+                      height: 150.0,
+                      width: 700.0,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: dates.length,
