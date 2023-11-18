@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   future: dateController.getDateData(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return CircularProgressIndicator();
+                      return const CircularProgressIndicator();
                     }
 
                     if (snapshot.hasError) {
@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
 
                     if (!snapshot.hasData) {
-                      return Text('No data available');
+                      return const Text('No data available');
                     }
                     final dates = snapshot.data!;
                     return Expanded(
@@ -124,7 +124,7 @@ class UserWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(20.0),
@@ -153,7 +153,7 @@ class UserWidget extends StatelessWidget {
                 children: [
                   Text(
                     userModel.churchName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 25.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -191,7 +191,7 @@ class DateCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(20.0),
@@ -201,14 +201,14 @@ class DateCardWidget extends StatelessWidget {
           Text(
             dateModel.day,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 25.0,
             ),
           ),
           Text(
             dateModel.date,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 45.0,
             ),
           ),
@@ -218,14 +218,14 @@ class DateCardWidget extends StatelessWidget {
               Text(
                 dateModel.services != null ? dateModel.services! : '',
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12.0,
                 ),
               ),
               Text(
                 dateModel.events != null ? dateModel.events! : '',
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12.0,
                 ),
               ),
