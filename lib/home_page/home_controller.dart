@@ -77,6 +77,8 @@ class DateController {
         );
       }).toList();
 
+      return dates;
+
       // dates.forEach((date) {
       //   // dates.add(DateModel(id: date.id, day: date.day, date: date.date));
       //   // print('ID: ${date.id}, Tanggal: ${date.day} ${date.date}');
@@ -84,8 +86,6 @@ class DateController {
     } else {
       throw ArgumentError('No Collection Found');
     }
-
-    return dates;
   }
 }
 
