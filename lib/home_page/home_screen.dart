@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-
 // import 'home_model.dart';
 import 'home_controller.dart';
 import 'home_model.dart';
+import 'widgets/date_card_widget.dart';
+import 'widgets/user_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -113,126 +114,5 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ));
-  }
-}
-
-class UserWidget extends StatelessWidget {
-  const UserWidget({super.key, required this.userModel});
-
-  final UserModel userModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: IntrinsicHeight(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              'B',
-              style: TextStyle(
-                fontSize: 50.0,
-                color: Colors.grey.shade500,
-              ),
-            ),
-            VerticalDivider(
-              width: 20.0,
-              thickness: 1,
-              endIndent: 0,
-              color: Colors.grey.shade500,
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    userModel.churchName,
-                    style: const TextStyle(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(userModel.userName),
-                ],
-              ),
-            ),
-            VerticalDivider(
-              width: 20.0,
-              thickness: 1,
-              endIndent: 0,
-              color: Colors.grey.shade500,
-            ),
-            Text('17',
-                style: TextStyle(
-                  fontSize: 50.0,
-                  color: Colors.grey.shade500,
-                )),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class DateCardWidget extends StatelessWidget {
-  const DateCardWidget({
-    super.key,
-    required this.dateModel,
-  });
-
-  final DateModel dateModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Column(
-        children: [
-          Text(
-            dateModel.day,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 25.0,
-            ),
-          ),
-          Text(
-            dateModel.date,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 45.0,
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                dateModel.services != null ? dateModel.services! : '',
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                  fontSize: 12.0,
-                ),
-              ),
-              Text(
-                dateModel.events != null ? dateModel.events! : '',
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                  fontSize: 12.0,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
   }
 }
