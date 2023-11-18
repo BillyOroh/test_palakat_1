@@ -82,7 +82,7 @@ class DateController {
       //   // print('ID: ${date.id}, Tanggal: ${date.day} ${date.date}');
       // });
     } else {
-      throw ArgumentError('No Documents Found');
+      throw ArgumentError('No Collection Found');
     }
 
     return dates;
