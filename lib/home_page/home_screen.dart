@@ -21,8 +21,10 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     dateController = DateController();
     userController = UserController();
-    dates = dateController.getDateData();
+    // dates = dateController.getDateData();
     users = userController.getUserData();
+
+    // dateController.getDateData();
     super.initState();
   }
 
@@ -81,17 +83,36 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 20.0,
               ),
-              Expanded(
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: dates.length,
-                    itemBuilder: (context, index) {
-                      final date = dates[index];
-                      return DateCardWidget(
-                        dateModel: date,
-                      );
-                    }),
-              ),
+              FutureBuilder<List<DateModel>>(
+                  future: DateController().getDateData(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      // Show a loading indicator if the data is still loading
+                      return CircularProgressIndicator();
+                    }
+
+                    if (snapshot.hasError) {
+                      // Show an error message if there was an error fetching the data
+                      return Text('Error: ${snapshot.error}');
+                    }
+
+                    if (!snapshot.hasData) {
+                      // Show a message if there is no data available
+                      return Text('No data available');
+                    }
+                    final dateList = snapshot.data!;
+                    return Expanded(
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: dateList.length,
+                          itemBuilder: (context, index) {
+                            final date = dateList[index];
+                            return DateCardWidget(
+                              dateModel: date,
+                            );
+                          }),
+                    );
+                  }),
             ],
           ),
         ));
@@ -198,7 +219,7 @@ class DateCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                dateModel.services == null ? dateModel.services! : '',
+                dateModel.services != null ? dateModel.services! : '',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 12.0,
