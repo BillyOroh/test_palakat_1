@@ -1,5 +1,6 @@
 import 'home_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DateController {
   // List<DateModel> dates = [];
@@ -89,6 +90,10 @@ class DateController {
     // return dates;
   }
 }
+
+final dateControllerProvider = Provider<DateController>((ref) {
+  return DateController();
+});
 
 class UserController {
   UserModel users = UserModel(

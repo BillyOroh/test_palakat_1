@@ -1,36 +1,38 @@
 import 'package:flutter/material.dart';
-// import 'home_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'home_controller.dart';
 import 'home_model.dart';
 import 'widgets/date_card_widget.dart';
 import 'widgets/user_widget.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
+
+// class _HomeScreenState extends State<HomeScreen> {
+//   late DateController dateController;
+//   late UserController userController;
+//   // List<DateModel> dates = [];
+//   late UserModel users;
+
+//   @override
+//   void initState() {
+//     dateController = DateController();
+//     userController = UserController();
+//     // dates = dateController.getDateData();
+//     users = userController.getUserData();
+
+//     // dateController.getDateData();
+//     super.initState();
+//   }
+
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late DateController dateController;
-  late UserController userController;
-  // List<DateModel> dates = [];
-  late UserModel users;
-
-  @override
-  void initState() {
-    dateController = DateController();
-    userController = UserController();
-    // dates = dateController.getDateData();
-    users = userController.getUserData();
-
-    // dateController.getDateData();
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final UserController userController = UserController();
+    final DateController dateController = ref.watch(dateControllerProvider);
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -47,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               UserWidget(
-                userModel: users,
+                userModel: userController.getUserData(),
               ),
               const SizedBox(height: 20),
               Row(
