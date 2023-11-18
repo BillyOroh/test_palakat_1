@@ -77,7 +77,7 @@ class DateController {
         );
       }).toList();
 
-      // dateList.forEach((date) {
+      // dates.forEach((date) {
       //   // dates.add(DateModel(id: date.id, day: date.day, date: date.date));
       //   // print('ID: ${date.id}, Tanggal: ${date.day} ${date.date}');
       // });
