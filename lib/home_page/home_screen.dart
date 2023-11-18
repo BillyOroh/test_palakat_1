@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20.0,
               ),
               FutureBuilder<List<DateModel>>(
-                  future: DateController().getDateData(),
+                  future: dateController.getDateData(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       // Show a loading indicator if the data is still loading
