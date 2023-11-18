@@ -65,7 +65,7 @@ class DateController {
     QuerySnapshot querySnapshot = await dateCollection.get();
 
     if (querySnapshot.docs.isNotEmpty) {
-      List<DateModel> dateList = querySnapshot.docs.map((document) {
+      dates = querySnapshot.docs.map((document) {
         Map<String, dynamic> data = document.data() as Map<String, dynamic>;
 
         return DateModel(
@@ -76,7 +76,6 @@ class DateController {
           services: data['services'],
         );
       }).toList();
-      dates = dateList;
 
       // dateList.forEach((date) {
       //   // dates.add(DateModel(id: date.id, day: date.day, date: date.date));
